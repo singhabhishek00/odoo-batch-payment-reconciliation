@@ -1,68 +1,133 @@
 # Odoo Batch Payment Reconciliation System
 
+## Overview
+
+A custom Odoo Accounting solution designed to automate and simplify bank reconciliation workflows for both customer and vendor transactions.
+
+The system enables finance teams to reconcile individual payments, grouped transactions, or entire payment batches while maintaining complete audit visibility and transaction traceability.
+
+---
+
 ## Business Problem
 
-Finance teams were manually reconciling hundreds of payment transactions against bank statements.
+Finance teams were manually reconciling large volumes of payment transactions against bank statements.
 
-Every payment had to be searched, selected, and matched individually, creating significant manual effort and reconciliation delays.
+Every payment had to be searched, selected, and matched individually, creating:
+
+* Significant manual effort
+* Reconciliation delays
+* Increased risk of human error
+* Limited transaction visibility
+* Slower month-end closing processes
+
+---
 
 ## Solution
 
-Developed a custom Odoo Batch Processing Module that allows finance teams to group multiple payment transactions into a single deposit batch.
+Developed a custom Batch Processing Module within Odoo Accounting.
 
-The system automatically tracks:
+The solution allows users to:
 
-- Batch ID
-- Deposit Status
-- Reconciliation Status
-- Bank Statement Match Reference
+* Create payment batches
+* Group multiple transactions
+* Reconcile individual payments
+* Reconcile grouped transactions
+* Reconcile entire batches
+* Track reconciliation lifecycle automatically
+
+The system automatically stores reconciliation references, batch information, and bank statement match details.
+
+---
 
 ## Key Features
 
-### Batch Creation
+### Batch Processing
 
-Group multiple customer payments into a single deposit batch.
+Group multiple customer or vendor transactions into reconciliation batches.
+
+### Flexible Reconciliation
+
+Support for:
+
+* Individual Payment Reconciliation
+* Group Payment Reconciliation
+* Batch Reconciliation
 
 ### Status Tracking
 
-- Blank
-- Deposited
-- Reconciled
+* Draft
+* Deposited
+* Reconciled
 
 ### Audit Trail
 
-Track every payment from collection through final reconciliation.
+Track:
 
-### Bank Statement Matching
+* Batch ID
+* Reconciliation Status
+* Deposit Status
+* Bank Statement Match ID
 
-Direct reconciliation against grouped deposits rather than individual payments.
+### Bank Statement Integration
 
-## Technical Stack
+Automatically associate reconciled transactions with imported bank statement entries.
 
-- Odoo
-- Python
-- PostgreSQL
-- XML
-- Odoo Accounting
+---
 
-## Business Impact
-
-- Reduced manual reconciliation effort
-- Improved accounting accuracy
-- Faster month-end closing
-- Better audit visibility
-
-
-  ## Workflow
+## Workflow
 
 ```mermaid
 flowchart TD
-    A[Customer Payments] --> B[Create Batch]
-    B --> C[Batch ID Assigned]
+    A[Customer or Vendor Payments]
+    --> B[Individual or Batch Selection]
+
+    B --> C[Generate Batch ID]
+
     C --> D[Status Updated to Deposited]
+
     D --> E[Temporary Account 1085.1]
+
     E --> F[Bank Statement Imported]
-    F --> G[Batch Reconciliation]
-    G --> H[Status Updated to Reconciled]
-    H --> I[Match Reference Stored]
+
+    F --> G[Individual or Batch Reconciliation]
+
+    G --> H[Update Payment Tags]
+
+    H --> I[Store Bank Statement Match ID]
+
+    I --> J[Status Updated to Reconciled]
+```
+
+---
+
+## Technical Stack
+
+* Odoo
+* Python
+* PostgreSQL
+* XML
+* Odoo Accounting
+* Bank Reconciliation Framework
+
+---
+
+## Business Impact
+
+* Eliminated repetitive payment-by-payment reconciliation
+* Reduced manual accounting effort
+* Improved accounting accuracy
+* Faster bank statement matching
+* Better transaction traceability
+* Improved audit visibility
+* Increased finance team productivity
+* Faster month-end closing process
+
+---
+
+## Documentation
+
+Detailed workflow documentation is available in:
+
+```text
+docs/workflow.md
 ```
