@@ -131,3 +131,21 @@ Detailed workflow documentation is available in:
 ```text
 docs/workflow.md
 ```
+
+## Screenshots
+
+### Customer Payment Tracking
+
+![Customer Payment](screenshots/customer-payment-screen.png)
+
+### Bank Reconciliation Process
+
+![Bank Reconciliation](screenshots/customer-reconciliation-screen.png)
+
+### Vendor Payment Tracking
+
+![Vendor Payment](screenshots/vendor-payment-screen.png)
+
+### Vendor Payment Reconciliation
+
+![Vendor Payment Reconcilation](screenshots/vendor-reconciliation-screen.png)
